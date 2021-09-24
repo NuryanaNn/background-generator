@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Abstract Background</title>
+</head>
+
+<body>
+    <div class="container">
+        <button onclick="generate()">Generate</button>
+    </div>
+
+    <script src="anime.min.js"></script>
+    <script>
+        const container = document.querySelector('.container');
+        for (var i = 1; i <= 20; i++) {
+            const blocks = document.createElement('div')
+            blocks.classList.add('block');
+            container.appendChild(blocks);
+        }
+
+        function generate() {
+            anime({
+                targets: '.block',
+                translateX: function () {
+                    return anime.random(-700, 700)
+                },
+                translateY: function () {
+                    return anime.random(-700, 700)
+                },
+                scale: function () {
+                    return anime.random(1, 5)
+                }
+            });
+        }
+
+        generate()
+    </script>
+
+
+</body>
+
+</html>
